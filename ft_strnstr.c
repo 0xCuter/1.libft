@@ -6,7 +6,7 @@
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 11:11:58 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/21 16:21:02 by scuter           ###   ########.fr       */
+/*   Updated: 2021/01/21 17:24:39 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t len)
 
 	if (*str2 == 0)
 		return ((char *)str1);
-	while (*str1)
+	while (*str1 && len)
 	{
 		i = 0;
 		while (str1[i] == str2[i] && i < len)
@@ -28,6 +28,7 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t len)
 			i++;
 		}
 		str1++;
+		len--;
 	}
 	return (NULL);
 }
