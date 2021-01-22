@@ -6,15 +6,17 @@
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 12:36:59 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/21 12:41:31 by scuter           ###   ########.fr       */
+/*   Updated: 2021/01/22 11:34:29 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 int	ft_atoi(const char *str)
 {
-	int i;
-	int sign;
-	int sum;
+	size_t	sum;
+	size_t	i;
+	int		sign;
 
 	i = 0;
 	sign = 1;
