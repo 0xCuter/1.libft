@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 12:36:59 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/25 15:23:39 by scuter           ###   ########.fr       */
+/*   Created: 2021/01/21 16:23:33 by scuter            #+#    #+#             */
+/*   Updated: 2021/01/23 13:34:47 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	sum;
+	char	*sub;
 	size_t	i;
-	int		sign;
 
 	i = 0;
-	sign = 1;
-	sum = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
+	while (s[i])
 		i++;
-	if ((str[i] == '-') || (str[i] == '+'))
+	if (i <= start)
+		return (malloc(0));
+	sub = malloc(sizeof(char) * (len + 1));
+	if (sub == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start + i])
 	{
-		if (str[i] == '-')
-			sign = -1;
+		sub[i] = s[start + i];
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		sum = sum * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sum * sign);
+	sub[i] = 0;
+	return (sub);
 }

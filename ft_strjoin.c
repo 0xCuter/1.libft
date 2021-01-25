@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 12:36:59 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/25 15:23:39 by scuter           ###   ########.fr       */
+/*   Created: 2021/01/21 16:42:18 by scuter            #+#    #+#             */
+/*   Updated: 2021/01/22 16:03:25 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	sum;
-	size_t	i;
-	int		sign;
+	char	*join;
+	size_t	len1;
+	size_t	len2;
 
-	i = 0;
-	sign = 1;
-	sum = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
-		i++;
-	if ((str[i] == '-') || (str[i] == '+'))
+	len1 = 0;
+	len2 = 0;
+	while (s1[len1])
+		len1++;
+	while (s2[len2])
+		len2++;
+	join = malloc(sizeof(char) * (len1 + len2 + 1));
+	if (join == NULL)
+		return (NULL);
+	join[len1 + len2] = 0;
+	while (len2)
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+		join[len1 + len2 - 1] = s2[len2 - 1];
+		len2--;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (len1)
 	{
-		sum = sum * 10 + (str[i] - '0');
-		i++;
+		join[len1 - 1] = s1[len1 - 1];
+		len1--;
 	}
-	return (sum * sign);
+	return (join);
 }

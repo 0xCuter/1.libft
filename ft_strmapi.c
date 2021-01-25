@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 12:36:59 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/25 15:23:39 by scuter           ###   ########.fr       */
+/*   Created: 2021/01/23 13:37:57 by scuter            #+#    #+#             */
+/*   Updated: 2021/01/25 11:33:08 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	sum;
-	size_t	i;
-	int		sign;
+	char	*s2;
+	size_t	len;
 
-	i = 0;
-	sign = 1;
-	sum = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
-		i++;
-	if ((str[i] == '-') || (str[i] == '+'))
+	len = 0;
+	while (s[len])
+		len++;
+	s2 = malloc(sizeof(char) * (len + 1));
+	if (!s2)
+		return (NULL);
+	s2[len] = 0;
+	while (len)
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+		s2[len - 1] = f(len - 1, s[len - 1]);
+		len--;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		sum = sum * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sum * sign);
+	return (s2);
 }

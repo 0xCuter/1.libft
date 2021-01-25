@@ -1,38 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/20 12:36:59 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/25 15:23:39 by scuter           ###   ########.fr       */
+/*   Created: 2021/01/22 15:40:13 by scuter            #+#    #+#             */
+/*   Updated: 2021/01/25 15:35:32 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+static size_t	digits(int n)
 {
-	size_t	sum;
-	size_t	i;
-	int		sign;
+	size_t i;
 
 	i = 0;
-	sign = 1;
-	sum = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == ' '))
+	if (n <= 0)
 		i++;
-	if ((str[i] == '-') || (str[i] == '+'))
+	while (n)
 	{
-		if (str[i] == '-')
-			sign = -1;
+		n /= 10;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	return (i);
+}
+
+char			*ft_itoa(int n)
+{
+	char			*str;
+	size_t			len;
+	unsigned int	abs;
+
+	len = digits(n);
+	str = malloc(sizeof(char) * (len + 1));
+	if (str == NULL)
+		return (NULL);
+	str[len] = 0;
+	abs = n;
+	if (n < 0)
+		abs = -n;
+	while (len)
 	{
-		sum = sum * 10 + (str[i] - '0');
-		i++;
+		str[len - 1] = '0' + (abs % 10);
+		abs /= 10;
+		len--;
 	}
-	return (sum * sign);
+	if (n < 0)
+		str[0] = '-';
+	return (str);
 }
