@@ -6,11 +6,11 @@
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 17:08:35 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/25 11:31:51 by scuter           ###   ########.fr       */
+/*   Updated: 2021/01/27 11:39:00 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	is_separator(const char c, const char *set)
 {

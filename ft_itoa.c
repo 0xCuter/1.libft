@@ -6,11 +6,11 @@
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 15:40:13 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/25 15:35:32 by scuter           ###   ########.fr       */
+/*   Updated: 2021/01/27 11:36:25 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	digits(int n)
 {

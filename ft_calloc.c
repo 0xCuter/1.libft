@@ -6,11 +6,11 @@
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 15:53:37 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/20 16:10:15 by scuter           ###   ########.fr       */
+/*   Updated: 2021/01/27 11:34:56 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

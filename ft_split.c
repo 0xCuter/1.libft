@@ -6,11 +6,11 @@
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/22 13:43:35 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/25 17:14:11 by scuter           ###   ########.fr       */
+/*   Updated: 2021/01/27 11:21:27 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 static int	word_count(const char *str, char c)
 {
@@ -25,7 +25,8 @@ static int	word_count(const char *str, char c)
 			while (*str && *str != c)
 				str++;
 		}
-		str++;
+		if (*str)
+			str++;
 	}
 	return (i);
 }
@@ -66,13 +67,13 @@ char		**ft_split(char const *s, char c)
 			first = (char *)s;
 			while ((*s != c) && *s)
 				s++;
-			words[i] = malloc(sizeof(char) * (s - first + 1));
-			if (!words[i])
+			if (!(words[i] = malloc(sizeof(char) * (s - first + 1))))
 				return (freee(words, i));
 			ft_strcpy(words[i], first, s);
 			i++;
 		}
-		s++;
+		if (*s)
+			s++;
 	}
 	words[i] = NULL;
 	return (words);

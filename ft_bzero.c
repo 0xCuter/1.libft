@@ -6,11 +6,11 @@
 /*   By: scuter <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 16:36:06 by scuter            #+#    #+#             */
-/*   Updated: 2021/01/20 16:02:21 by scuter           ###   ########.fr       */
+/*   Updated: 2021/01/27 11:34:56 by scuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include "libft.h"
 
 void	ft_bzero(void *str, size_t n)
 {
